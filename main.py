@@ -1,16 +1,15 @@
 #implementaion of machine learning to decrypt the caesar cipher 
- #the program should analyse all brute force results and find the logical one to output
+#the program should analyse all brute force results and find the logical one to output
 
 
 
 import sys
 import subprocess
 
-message = input("Enter a message: ")  # user inputs message
+message = input("Enter the encrypted text:  ")
 offset = 0
 
-
-   #brute force attack
+#brute force attack
 while offset < 26:
     decrypt = ""
     for char in message:
@@ -25,12 +24,18 @@ while offset < 26:
         
     offset = offset + 1
     print( offset, decrypt)
- 
-    #saves output to a new file
-    output = open('caesar cipher/output.txt', 'w')
+
+#saves output to a file
+
+with open("output.txt", "w+") as output:
+    output.write(decrypt)
+    
+"""  
+    output = open('thesis/library/output.txt', 'w')
     sys.stdout = output
-    #compares the newly created file with the existing library "commonwords.txt"
-    file=open("C:\Users\injia\OneDrive\Desktop\project\caesar cipher\caesar cipher\commonwords.txt", 'r')
+
+#compares the newly created file with the existing library "commonwords.txt"
+    file=open("thesis/library/commonwords.txt", 'r')
     lines=file.readlines()
 #prints the logical output
     for output in output:
@@ -47,4 +52,5 @@ while offset < 26:
 #Removes the output file after finish each decryption 
 
 
-#"I am a student"  "J bn b tuvefou"  shift by 1
+#EXample: "I am a student"  "J bn b tuvefou"  shift by 1
+"""
