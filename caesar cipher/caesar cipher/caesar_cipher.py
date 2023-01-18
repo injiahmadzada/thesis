@@ -2,7 +2,7 @@
  #the program should analyse all brute force results and find the logical one to output
 
 
- #brute force attack
+
 import sys
 import subprocess
 
@@ -10,7 +10,7 @@ message = input("Enter a message: ")  # user inputs message
 offset = 0
 
 
-  
+   #brute force attack
 while offset < 26:
     decrypt = ""
     for char in message:
@@ -26,12 +26,13 @@ while offset < 26:
     offset = offset + 1
     print( offset, decrypt)
  
-    output="caesar cipher/output.txt"      
-    sys.stdout=open(output, 'w')
-
-    file=open("caesar cipher/commonwords.txt", 'r')
+    #saves output to a new file
+    output = open('caesar cipher/output.txt', 'w')
+    sys.stdout = output
+    #compares the newly created file with the existing library "commonwords.txt"
+    file=open("C:\Users\injia\OneDrive\Desktop\project\caesar cipher\caesar cipher\commonwords.txt", 'r')
     lines=file.readlines()
-
+#prints the logical output
     for output in output:
         for line in lines:
             if  output  in  line:
@@ -43,6 +44,7 @@ while offset < 26:
              
     subprocess.call(["caesar cipher/output.txt", "caesar cipher/commonwords.txt"])
 
+#Removes the output file after finish each decryption 
 
 
 #"I am a student"  "J bn b tuvefou"  shift by 1
